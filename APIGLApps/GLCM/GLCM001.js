@@ -13,7 +13,7 @@ router.post("/", (req, res) => {
   console.log(strParaMeter);
 
   const resultCall = new Promise((resolve, reject) => {
-    resolve(dbUtil.dbUtil_Temp.Select_SP("SP_GLCM001", strParaMeter));
+    resolve(dbUtil.dbUtil_Temp.Select_SP("SP_GLCM1001", strParaMeter));
   });
 
   console.log("Sam", "hih");
