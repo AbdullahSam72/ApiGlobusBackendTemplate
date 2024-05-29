@@ -117,11 +117,11 @@ async function Save_SP(strSP_name, strParameter) {
         });
       });
     };
-    //End Of DB....................
+    //End Of DB.......................
 
     //Result Data
     const result = await selectDataResult();
-    console.log(result);
+    console.log("Result Final from MySql: ", result);
     return result;
     ///End Data......................
   } catch (error) {
