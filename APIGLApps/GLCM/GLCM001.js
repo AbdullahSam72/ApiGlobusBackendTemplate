@@ -16,17 +16,19 @@ router.post("/", (req, res) => {
     resolve(dbUtil.dbUtil_Temp.Select_SP("SP_GLCM1001", strParaMeter));
   });
 
-  console.log("Sam", "hih");
   resultCall.then((result) => {
     console.log("Result from DB ", result);
-
     const dataResult = objEnCrpt.GlEncrypt(result);
-    const tokenId = objJwtToken.sign(
-      { id: dataResult.USER_ID },
-      objCongig.glJWTPriveteKey
-    );
-    console.log(dataResult);
-    res.header("x-gl-Auth-Token", tokenId).send(result); //
+    if (result.SUSCCESS_YN == "Y") {
+      const tokenId = objJwtToken.sign(
+        { id: dataResult.USER_ID },
+        objCongig.glJWTPriveteKey
+      );
+      console.log(dataResult);
+      res.header("x-gl-Auth-Token", tokenId).send(result); //
+    } else {
+      res.header("x-gl-Auth-Token", null).send(result); //
+    }
   });
 });
 
