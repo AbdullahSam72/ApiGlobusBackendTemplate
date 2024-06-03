@@ -19,9 +19,10 @@ router.post("/", (req, res) => {
   resultCall.then((result) => {
     console.log("Result from DB ", result);
     const dataResult = objEnCrpt.GlEncrypt(result);
-    if (result.SUCCESS_YN == "Y") {
+    console.log("Result Success ", result[0].SUCCESS_YN);
+    if (result[0].SUCCESS_YN == "Y") {
       const tokenId = objJwtToken.sign(
-        { id: dataResult.USER_CD },
+        { id: result[0].USER_CD },
         objCongig.glJWTPriveteKey
       );
       console.log(dataResult);
