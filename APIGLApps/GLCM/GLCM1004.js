@@ -12,7 +12,7 @@ const router = express.Router();
  *
  */
 //Access Rights For employee for Page
-router.get("/", (req, res) => {
+router.post("/", (req, res) => {
   console.log("AccessRights");
   const resultCall = new Promise((resolve, reject) => {
     const strParaMeter = {
