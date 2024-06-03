@@ -7,7 +7,7 @@ const objEnCrpt = require("../CommonUtil/hash");
 const dbUtil = require("../DBCall/DBUtil");
 const glTryCach = require("../CommonUtil/GLtryCatch");
 const router = express.Router();
-
+//Login
 router.post("/", (req, res) => {
   const strParaMeter = { USER_CD: req.body.id, PASS_CD: req.body.password };
   console.log(strParaMeter);
