@@ -11,7 +11,7 @@ const router = express.Router();
  *       description: success
  *
  */
-//Access Rights For employee for Page
+//Access Rights For employee for Page...
 router.post("/", (req, res) => {
   console.log("AccessRights");
   const resultCall = new Promise((resolve, reject) => {
