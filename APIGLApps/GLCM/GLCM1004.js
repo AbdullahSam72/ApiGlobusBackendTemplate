@@ -11,10 +11,15 @@ const router = express.Router();
  *       description: success
  *
  */
+//Access Rights For employee for Page
 router.get("/", (req, res) => {
   console.log("AccessRights");
   const resultCall = new Promise((resolve, reject) => {
-    resolve(dbUtil.dbUtil_Temp.Select_SP("Select * FROM TDBC_A003"));
+    const strParaMeter = {
+      USER_CD: req.body.id,
+      PAGE_ID: req.body.PAGE_ID,
+    };
+    resolve(dbUtil.dbUtil_Temp.Select_SP("SP_GLCM1003", strParaMeter));
   });
 
   resultCall.then((result) => {
