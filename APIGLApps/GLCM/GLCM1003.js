@@ -3,12 +3,12 @@ const objVerify = require("../CommonUtil/authVerify");
 const dbUtil = require("../DBCall/DBUtil");
 const router = express.Router();
 
-//Get All Menu for App
+//Get All Menu for UserId
 router.get("/", objVerify, (req, res) => {
   console.log("Menu");
   const resultCall = new Promise((resolve, reject) => {
     const strParaMeter = { USER_ID: "", PASS_TOKEN: "" };
-    resolve(dbUtil.dbUtil_Temp.Select_SP("[SP_GLCM002_01]", strParaMeter));
+    resolve(dbUtil.dbUtil_Temp.Select_SP("[SP_GLCM1002]", strParaMeter));
   });
 
   resultCall.then((result) => {
@@ -20,8 +20,10 @@ router.get("/", objVerify, (req, res) => {
 router.post("/", objVerify, async (req, res) => {
   console.log("Menu");
   const resultCall = new Promise((resolve, reject) => {
-    const strParaMeter = { USER_ID: "", PASS_TOKEN: "" };
-    resolve(dbUtil.dbUtil_Temp.Select_SP("[SP_GLCM002_01]", strParaMeter));
+    const strParaMeter = {
+      USER_CD: req.body.id,
+    };
+    resolve(dbUtil.dbUtil_Temp.Select_SP("SP_GLCM1002", strParaMeter));
   });
 
   resultCall.then((result) => {

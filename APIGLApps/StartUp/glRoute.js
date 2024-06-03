@@ -1,8 +1,8 @@
 const express = require("express");
 const glErrors = require("../CommonUtil/glErrors");
-const apiLogin = require("../GLCM/GLCM001");
-const apiMenu = require("../GLCM/GLCM003");
-const apiAccessRight = require("../GLCM/GLCM004");
+const apiLogin = require("../GLCM/GLCM1001");
+const apiMenu = require("../GLCM/GLCM1003");
+const apiAccessRight = require("../GLCM/GLCM1004");
 
 require("express-async-errors");
 module.exports = function (app) {
