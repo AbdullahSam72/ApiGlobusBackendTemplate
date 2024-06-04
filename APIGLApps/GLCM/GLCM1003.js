@@ -21,7 +21,7 @@ router.post("/", objVerify, async (req, res) => {
   console.log("Menu");
   const resultCall = new Promise((resolve, reject) => {
     const strParaMeter = {
-      USER_CD: req.body.id,
+      USER_CD: req.body.USER_CD,
     };
     resolve(dbUtil.dbUtil_Temp.Select_SP("SP_GLCM1002", strParaMeter));
   });
