@@ -9,7 +9,7 @@ const glTryCach = require("../CommonUtil/GLtryCatch");
 const router = express.Router();
 //Login
 router.post("/", (req, res) => {
-  const strParaMeter = { USER_CD: req.body.id, PASS_CD: req.body.password };
+  const strParaMeter = { USER_CD: req.body.USER_CD, PASS_CD: req.body.PASS_CD };
   console.log(strParaMeter);
 
   const resultCall = new Promise((resolve, reject) => {
@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
     console.log("Result Success ", result[0].SUCCESS_YN);
     if (result[0].SUCCESS_YN == "Y") {
       const tokenId = objJwtToken.sign(
-        { id: result[0].USER_CD },
+        { USER_CD: result[0].USER_CD },
         objCongig.glJWTPriveteKey
       );
       console.log(dataResult);
